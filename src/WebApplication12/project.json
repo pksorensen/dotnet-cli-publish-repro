@@ -38,11 +38,13 @@
   "publishOptions": {
     "include": [
       "wwwroot",
-      "web.config"
+      "web.config",
+        "artifacts"
     ]
   },
 
   "scripts": {
+    "prepublish": ["npm run makefile"],
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   }
 }
